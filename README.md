@@ -1,6 +1,6 @@
 # An Introduction to the Kalman Filter: Presentation and Code
 
-> I created this for my lab at Embry-Riddle Aeronautical University, the Space Robotics and Generative Estimation (SRGE) Lab. The theoretical content is largely based on the book *Optimal State Estimation: Kalman, H-infinity, and Nonlinear Approaches* by Dan Simon. Any errors are my own, and all content is for educational purposes and may contain errors. Please verify any critical information before use.
+> We created this for our lab at Embry-Riddle Aeronautical University, the Space Robotics and Generative Estimation (SRGE) Lab. The theoretical content is largely based on the book *Optimal State Estimation: Kalman, H-infinity, and Nonlinear Approaches* by Dan Simon. Any errors are our own, and all content is for educational purposes and may contain errors. Please verify any critical information before use.
 
 Welcome to this repository for "An Introduction to the Kalman Filter." This collection of materials is designed to provide a comprehensive overview of Kalman filtering, from the foundational concepts of least-squares estimation to advanced nonlinear applications in robotics.
 
