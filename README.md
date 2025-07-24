@@ -8,7 +8,7 @@ This repository is perfect for undergraduate students, researchers, or anyone in
 
 ## 📁 Repository Structure
 
-* **/Kalman_Filters_v0_1.pdf**: Contains the full lecture presentation in PDF format.
+* **/Kalman_Filters.pdf**: Contains the full lecture presentation in PDF format.
 * **/code**: Includes Python code examples that correspond to the "Code Review" sections of the presentation. These examples provide practical implementations of the concepts discussed.
 
 ## 📖 Presentation Overview
@@ -45,7 +45,7 @@ The code provided in the `/code` directory is designed to be a practical compani
 
 ## 🚀 How to Use
 
-1.  **Download the Presentation**: The `Kalman_Filters_v0_1.pdf` file.
+1.  **Download the Presentation**: The `Kalman_Filters.pdf` file.
 2.  **Explore the Code**: The Jupyter Notebooks in the `/code` directory are standalone examples. You can run them to see the filters in action. Ensure you have standard Python libraries like `numpy` and `matplotlib` installed.
 
     ```bash
