@@ -1,53 +1,54 @@
-# An Introduction to the Kalman Filter: Presentation and Code
+# An Introduction to the Kalman Filter
 
-> We created this for our lab at Embry-Riddle Aeronautical University, the Space Robotics and Generative Estimation (SRGE) Lab. The theoretical content is largely based on the book *Optimal State Estimation: Kalman, H-infinity, and Nonlinear Approaches* by Dan Simon. Any errors are our own, and all content is for educational purposes and may contain errors. Please verify any critical information before use.
+Lecture slides and executable notebooks for learning state estimation, from least squares through nonlinear filtering and IMU/GPS sensor fusion. The materials were created for the Space Robotics and Generative Estimation (SRGE) Lab at Embry-Riddle Aeronautical University.
 
-Welcome to this repository for "An Introduction to the Kalman Filter." This collection of materials is designed to provide a comprehensive overview of Kalman filtering, from the foundational concepts of least-squares estimation to advanced nonlinear applications in robotics.
+> The theoretical presentation draws primarily from Dan Simon's *Optimal State Estimation*. These materials are educational and may contain errors; independently verify critical applications.
 
-This repository is perfect for undergraduate students, researchers, or anyone interested in learning about one of the most fundamental algorithms in robotics and control systems.
+## Topics
 
-## 📁 Repository Structure
+- Batch, weighted, and recursive least squares
+- Linear state-space models and the Kalman predict/update cycle
+- Model mismatch on nonlinear systems
+- Extended and error-state Kalman filter concepts
+- Unscented and particle filter introductions
+- IMU propagation with lower-rate GPS corrections
 
-* **/Kalman_Filter.pdf**: Contains the full lecture presentation in PDF format.
-* **/code**: Includes Python code examples that correspond to the "Code Review" sections of the presentation. These examples provide practical implementations of the concepts discussed.
+## Repository contents
 
-### Key Topics Covered:
+| Path | Description |
+| --- | --- |
+| `Kalman_Filter.pdf` | Full lecture presentation |
+| `code/1_least_square.ipynb` | Batch versus recursive least squares |
+| `code/2_linear_KF.ipynb` | Linear Kalman filter for 1D tracking |
+| `code/3_nonlinear_data_kalman_filter.ipynb` | Linear filtering with nonlinear data |
+| `code/4_EKF.ipynb` | Extended Kalman filter for 2D navigation |
+| `code/5_imu_gps.ipynb` | IMU/GPS sensor-fusion example |
+| `code/state_propagation.ipynb` | Supplemental motion-propagation notebook |
 
-* **Fundamentals of State Estimation**
-    * **Least-Squares Estimation**: The presentation starts by framing state estimation as an optimization problem, introducing the batch least-squares method for estimating a constant value from noisy measurements.
-    * **Weighted Least-Squares (WLS)**: It extends the concept to account for varying sensor quality by introducing the measurement covariance matrix, **R**.
-    * **Recursive Least-Squares (RLS)**: The inefficiency of batch processing is addressed by deriving the RLS algorithm, an online method to update estimates with new data efficiently.
+## Quick start
 
-* **The Linear Kalman Filter**
-    * **Dynamic Systems**: The limitation of a "constant state" assumption is lifted by introducing a state-space model for dynamic systems, including the state transition matrix (**F**) and process noise (**Q**).
-    * **The Predict-Update Cycle**: The core of the Kalman filter is presented as a two-step cycle: predicting the next state and then correcting it with a measurement. The derivation combines the dynamic propagation model with the RLS measurement update.
-    * **Optimality**: The presentation explains why the Kalman filter is considered the **Best Linear Unbiased Estimator (BLUE)** under certain conditions.
+```bash
+git clone https://github.com/srge-erau/Kalman-Filter.git
+cd Kalman-Filter
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+jupyter lab
+```
 
-* **Nonlinear Kalman Filters**
-    * **Extended Kalman Filter (EKF)**: For nonlinear systems, the EKF is introduced as the industry standard. It handles nonlinearity by linearizing the system model at each time step using **Jacobians**.
-    * **Error-State Kalman Filter (ESKF)**: An advanced and often more stable variation that estimates the *error* in the state rather than the state itself. This method offers superior linearization and is particularly effective for systems involving 3D rotations.
-    * **Unscented Kalman Filter (UKF)**: An alternative to the EKF that avoids Jacobians by propagating a set of "sigma points" through the true nonlinear model, often resulting in higher accuracy.
-    * **Particle Filter**: A brief introduction to this non-parametric, brute-force method used for highly nonlinear systems, popular in ROS applications like AMCL and GMapping.
+Open `code/1_least_square.ipynb` and continue through the numbered notebooks. Each notebook is designed to be run from a clean kernel.
 
-## 💻 Code Examples
+## Reproducibility tips
 
-The code provided in the `/code` directory is designed to be a practical companion to the presentation.
+- Restart the kernel and run all cells before sharing a result.
+- Record any random-seed, parameter, or noise-setting changes.
+- Treat generated trajectories as demonstrations, not calibrated sensor datasets.
+- Use the presentation alongside the notebooks for definitions and derivations.
 
-* **Code Review 1: Batch vs. Recursive Least Squares**: A simple 1D example demonstrating how the RLS estimator efficiently converges to the true value, just like the batch method, but without needing to reprocess all past data.
-* **Code Review 2: Linear Kalman Filter**: A 1D tracking problem (e.g., tracking a cart's position and velocity) to illustrate the predict-update cycle of the linear KF in action.
-* **Code Review 3: Linear KF on Nonlinear Data**: Highlights the limitations of a linear filter by applying it to a 2D nonlinear motion model, showing how model mismatch leads to poor performance.
-* **Code Review 4: Extended Kalman Filter (EKF)**: A 2D vehicle navigation example where the EKF is used to track position, speed, and heading based on a nonlinear motion model.
-* **Code Review 5: Sensor Fusion (IMU & GPS)**: A practical robotics example of fusing high-frequency IMU data (for propagation) with low-frequency GPS data (for correction) to achieve a robust and drift-free state estimate for a rover.
+## License
 
-## 🚀 How to Use
+No license file is currently included. Unless a license is added, normal copyright restrictions apply; contact the maintainers before redistributing or adapting the materials.
 
-1.  **Download the Presentation**: The `Kalman_Filter.pdf` file.
-2.  **Explore the Code**: The Jupyter Notebooks in the `/code` directory are standalone examples. You can run them to see the filters in action. Ensure you have standard Python libraries like `numpy` and `matplotlib` installed.
+## Maintainer
 
-    ```bash
-    pip install numpy matplotlib
-    ```
-
-## 📜 License
-
-This work is licensed under the [MIT License](LICENSE). You are free to use, share, and adapt the materials, but please provide attribution.
+[Space Robotics and Generative Estimation (SRGE) Lab](https://github.com/srge-erau), Embry-Riddle Aeronautical University.
